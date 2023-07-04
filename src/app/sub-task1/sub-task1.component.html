@@ -1,0 +1,64 @@
+<p>sub-task A</p>
+<hr>
+<form [formGroup]="sForm1">
+    <div class="row ipf">
+        <div class="col-6">
+            <div class="form-group">
+                <label for="fname">First Name</label>
+                <input type="text" 
+                    name="" 
+                    id="fname" 
+                    class="form-control"
+                    formControlName="fname"
+                    >
+                    <span class="badge badge-warning"
+                        *ngIf="sForm1.get('fname').invalid && sForm1.get('fname').touched"
+                        >
+                        * This field is required
+                    </span>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input type="text" 
+                    name="" 
+                    id="lname" 
+                    class="form-control"
+                    formControlName="lname"
+                    >
+                    <span class="badge badge-warning"
+                        *ngIf="sForm1.get('lname').invalid && sForm1.get('lname').touched"
+                        >
+                        * This field is required
+                    </span>
+            </div>
+        </div>
+        <div class="col-6">
+            <label id="cnct">How should we contact you ?</label>
+            <select 
+                name="" 
+                id="cnct"
+                class="form-control"
+                (change)="onSelect($event)"
+                >
+                <option>choose option ..</option>
+                <option
+                    value="phn"
+                    >
+                    Phone
+                </option>
+                <option 
+                    value="eml"
+                    >
+                    Email
+                </option>
+            </select>
+        </div>
+        <div class="col-6"
+            [innerHTML]="toAddField | sanitizeHtml"
+            >
+
+        </div>
+    </div>
+</form>

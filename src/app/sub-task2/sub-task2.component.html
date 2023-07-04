@@ -1,0 +1,63 @@
+<p>sub-task B</p>
+<hr>
+<form [formGroup]="sForm2">
+    <div class="row ipf">
+        <div class="col-6">
+            <div class="form-group">
+                <label for="fname">First Name</label>
+                <input type="text" 
+                    name="" 
+                    id="fname" 
+                    class="form-control"
+                    formControlName="fname"
+                    >
+                    <span class="badge badge-warning"
+                        *ngIf="sForm2.get('fname').invalid && sForm2.get('fname').touched"
+                        >
+                        * This field is required
+                    </span>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input type="text" 
+                    name="" 
+                    id="lname" 
+                    class="form-control"
+                    formControlName="lname"
+                    >
+                    <span class="badge badge-warning"
+                        *ngIf="sForm2.get('lname').invalid && sForm2.get('lname').touched"
+                        >
+                        * This field is required
+                    </span>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <label>How should we contact you ?</label>
+            <br>
+            <input type="radio" 
+                name="cnct" 
+                (click)="onSelect($event)"
+                value="phn"
+                >
+                Phone
+            &nbsp;
+            &nbsp;
+            <input type="radio" 
+                name="cnct" 
+                (click)="onSelect($event)"
+                value="eml"
+                >
+                Email
+        </div>
+        
+        <div class="col-6"
+            [innerHTML]="toAddField | sanitizeHtml"
+            >
+
+        </div>
+    </div>
+</form>
